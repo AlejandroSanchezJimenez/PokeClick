@@ -3,7 +3,7 @@
 const isProd = process.env.NODE_ENV === 'production'
 
 const nextConfig = {
-  basePath: isProd ? '/AlejandroSanchezJimenez/PokeClick' : '',
+  basePath: isProd ? '/PokeClick' : '',
   output: 'export',
   distDir: 'dist',
   images: {
