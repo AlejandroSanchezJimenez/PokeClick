@@ -12,6 +12,7 @@ export default function Shop() {
   const [modalOpen, setModalOpen] = useState(false)
   const [cartasPorSobre, setCartasPorSobre] = useState(1) // cantidad de cartas que abre el modal
 
+  // Solo para generar userId en cliente
   useEffect(() => {
     let id = localStorage.getItem('user_id')
     if (!id) {
