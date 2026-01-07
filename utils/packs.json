@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nombre": "Horda", "precio": 100, "cantidad": 5 },
+  { "id": 2, "nombre": "3 son multitud", "precio": 50, "cantidad": 3 },
+  { "id": 3, "nombre": "Encuentro único", "precio": 25, "cantidad": 1 }
+]
