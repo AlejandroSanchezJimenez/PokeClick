@@ -69,7 +69,7 @@ export default function Shop({ onClose }) {
             Tienda de Sobres
           </h2>
 
-          <Wallet coins={coins} />
+          <Wallet userId={userId} />
 
           {/* Scroll horizontal para sobres */}
           <div className='flex gap-6 overflow-x-auto py-4 px-2 justify-center'>

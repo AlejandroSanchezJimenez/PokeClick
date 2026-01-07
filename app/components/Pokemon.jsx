@@ -185,13 +185,13 @@ export default function PokeballModal({ cantidadPokemon = 1, closePack }) {
                 }}
               >
                 <div className='relative w-48 h-48 mb-6'>
-                  {p.shiny && (
+                  {/* {p.shiny && (
                     <img
                       src='/images/stars.gif'
                       alt='Shiny'
                       className='absolute inset-0 w-full h-full object-cover pointer-events-none animate-pulse opacity-80'
                     />
-                  )}
+                  )} */}
                   <img
                     src={p.imagen}
                     alt={p.nombre}

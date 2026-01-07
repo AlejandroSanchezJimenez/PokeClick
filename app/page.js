@@ -34,7 +34,7 @@ export default function Home() {
 
       {/* CONTENEDOR CENTRADO */}
       <div className='flex flex-col items-center justify-center min-h-screen'>
-        <Wallet coins={coins} />
+        <Wallet userId={userId} />
         <ClickerButton addCoins={addCoins} coinsPerClick={1} />
 
         <div className='fixed left-6 top-6'>
