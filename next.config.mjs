@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  /* config options here */
-  reactCompiler: true,
-};
 
-export default nextConfig;
+const isProd = process.env.NODE_ENV === 'production'
+
+const nextConfig = {
+  basePath: isProd ? '/AlejandroSanchezJimenez' : '',
+  output: 'export',
+  distDir: 'dist',
+  images: {
+    unoptimized: true,
+  },
+}
+
+module.exports = nextConfig
