@@ -1,6 +1,2 @@
-[00:00:02.724] Server  LOG     ✓ Ready in 1343ms
-[00:04:53.148] Server  LOG     ○ Compiling / ...
-[00:05:39.076] Server  LOG     ✓ Compiled in 1046ms
-[00:14:19.388] Server  LOG     ✓ Compiled in 389ms
-[00:14:39.406] Server  LOG     ✓ Compiled in 199ms
-[00:15:17.313] Server  LOG     ✓ Compiled in 195ms
+[00:00:02.125] Server  LOG     ⚠ Console Ninja Turbopack support is a PRO feature, currently available to community users while in preview
+[00:00:02.620] Server  LOG     ✓ Ready in 1266ms
