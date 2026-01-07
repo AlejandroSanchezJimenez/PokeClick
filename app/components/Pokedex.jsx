@@ -95,7 +95,7 @@ export default function Pokedex({ onClose }) {
                               className='w-16 h-16 object-contain'
                             />
                           ) : (
-                            <span className='text-2xl font-bold text-gray-700'>
+                            <span className='text-xl sm:text-2xl font-bold text-gray-700'>
                               #{id}
                             </span>
                           )}
