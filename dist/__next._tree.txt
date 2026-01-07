@@ -1,4 +1,5 @@
-:HL["/AlejandroSanchezJimenez/_next/static/chunks/973788f98c901aff.css","style"]
-:HL["/AlejandroSanchezJimenez/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/AlejandroSanchezJimenez/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"M8pNklWVj8Rk5GPv5MuwW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/PokeClick/_next/static/chunks/97bf295fe1ed9e04.css","style"]
+:HL["/PokeClick/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/PokeClick/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/PokeClick/_next/static/chunks/45042b2edb02f2ea.css","style"]
+0:{"buildId":"caAJOmAuGYeG4k4panbnW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
