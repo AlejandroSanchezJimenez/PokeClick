@@ -1,0 +1,2 @@
+:HL["/AlejandroSanchezJimenez/_next/static/chunks/973788f98c901aff.css","style"]
+0:{"buildId":"M8pNklWVj8Rk5GPv5MuwW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
