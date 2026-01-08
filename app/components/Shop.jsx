@@ -77,13 +77,21 @@ export default function Shop({ onClose }) {
               <button
                 key={sobre.id}
                 onClick={() => handleOpenPack(sobre)}
-                className='flex-shrink-0 w-64 h-64 p-6 bg-yellow-400 rounded-3xl shadow-xl flex flex-col items-center justify-center hover:scale-105 transition-transform hover:cursor-pointer'
+                className={`flex-shrink-0 w-64 h-64 p-6 rounded-3xl shadow-xl flex flex-col items-center justify-center hover:scale-105 transition-transform hover:cursor-pointer ${
+                  // Aplicamos clase personalizada si existe, sino fondo por defecto
+                  sobre.bgClass || 'bg-yellow-400'
+                }`}
+                style={{
+                  // También puedes usar colores directos o gradientes desde el JSON
+                  background: sobre.bgColor || undefined,
+                  color: sobre.textColor || 'black',
+                }}
               >
-                <h3 className='font-bold text-xl text-black mb-2 text-center'>
+                <h3 className='font-bold text-xl mb-2 text-center'>
                   {sobre.nombre}
                 </h3>
-                <p className='text-lg text-black'>{sobre.precio} 💰</p>
-                <p className='text-lg text-black'>{sobre.cantidad}</p>
+                <p className='text-lg'>{sobre.precio} 💰</p>
+                <p className='text-lg'>{sobre.cantidad}</p>
               </button>
             ))}
           </div>

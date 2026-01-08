@@ -36,3 +36,11 @@ body {
   );
   animation: lava-lamp 12s ease-in-out infinite;
 }
+
+/* globals.css */
+.bg-coleccion {
+  background-image: url('/images/pokedex.png');
+  background-size: cover;
+  background-position: center;
+}
+

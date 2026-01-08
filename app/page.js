@@ -5,11 +5,15 @@ import ClickerButton from './components/ClickerButton'
 import ShopButton from './components/ShopButton'
 import Wallet from './components/Wallet'
 import { useWallet } from './hooks/useWallet'
-import Pokedex from './components/Pokedex' // Asegúrate de tener el componente
+import Pokedex from './components/Pokedex'
+import { PokedexIcon } from './components/svg/Pokedex'
+import { Quest } from './components/svg/Quest'
+import QuestList from './components/QuestList'
 
 export default function Home() {
   const [userId, setUserId] = useState(null)
-  const [showPokedex, setShowPokedex] = useState(false) // Nuevo estado
+  const [showPokedex, setShowPokedex] = useState(false)
+  const [showQuest, setShowQuest] = useState(false)
 
   // Solo para generar userId en cliente
   useEffect(() => {
@@ -39,18 +43,28 @@ export default function Home() {
 
         <div className='fixed left-6 top-6'>
           <button
-            className=' bg-yellow-400 text-black font-bold px-6 py-3 rounded-full shadow-lg text-xl hover:scale-105 hover:cursor-pointer'
+            className='bg-yellow-400 text-black font-bold px-6 py-3 rounded-full shadow-lg text-xl hover:scale-105 transition hover:cursor-pointer'
             onClick={() => setShowPokedex((prev) => !prev)}
           >
-            {showPokedex ? 'Cerrar Pokedex' : 'Abrir Pokedex'}
+            <PokedexIcon />
+          </button>
+        </div>
+
+        <div className='fixed right-6 bottom-6'>
+          <button
+            className='bg-yellow-400 text-black font-bold px-6 py-3 rounded-full shadow-lg text-xl hover:scale-105 transition hover:cursor-pointer'
+            onClick={() => setShowQuest((prev) => !prev)}
+          >
+            <Quest />
           </button>
         </div>
 
         {showPokedex && <Pokedex onClose={() => setShowPokedex(false)} />}
+        {showQuest && (
+          <QuestList onClose={() => setShowQuest(false)} userId={userId} />
+        )}
 
-        <div className='mt-16'>
-          <ShopButton />
-        </div>
+        <ShopButton />
       </div>
     </main>
   )

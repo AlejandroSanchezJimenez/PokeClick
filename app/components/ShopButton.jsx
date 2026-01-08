@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Shop from './Shop' // tu componente Shop completo como modal
+import { ShopIcon } from './svg/Shop'
 
 export default function ShopButton() {
   const [open, setOpen] = useState(false)
@@ -11,9 +12,9 @@ export default function ShopButton() {
       {/* Botón flotante para abrir la tienda */}
       <button
         onClick={() => setOpen(true)}
-        className='fixed bottom-0 right-0 m-10 bg-yellow-400 text-black font-bold px-6 py-3 rounded-full shadow-lg text-xl hover:scale-105 hover:cursor-pointer transition-transform'
+        className='fixed bottom-6 left-6 bg-yellow-400 text-black font-bold px-6 py-3 rounded-full shadow-lg text-xl hover:scale-105 hover:cursor-pointer transition-transform'
       >
-        Abrir Tienda
+        <ShopIcon />
       </button>
 
       {/* Modal de la tienda */}

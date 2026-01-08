@@ -1,5 +1,29 @@
 [
-  { "id": 1, "nombre": "Horda", "precio": 100, "cantidad": 5 },
-  { "id": 2, "nombre": "3 son multitud", "precio": 50, "cantidad": 3 },
-  { "id": 3, "nombre": "Encuentro único", "precio": 25, "cantidad": 1 }
+  {
+    "id": 1,
+    "nombre": "Horda",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Oro",
+    "bgColor": "linear-gradient(to bottom, #facc15, #b45309)",
+    "textColor": "#000000"
+  },
+  {
+    "id": 2,
+    "nombre": "3 son multitud",
+    "precio": 50,
+    "cantidad": 3,
+    "nivel": "Plata",
+    "bgColor": "linear-gradient(to bottom, #9ca3af, #6b7280)",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 3,
+    "nombre": "Encuentro único",
+    "precio": 25,
+    "cantidad": 1,
+    "nivel": "Bronce",
+    "bgColor": "linear-gradient(to bottom, #b45309, #78350f)",
+    "textColor": "#ffffff"
+  }
 ]

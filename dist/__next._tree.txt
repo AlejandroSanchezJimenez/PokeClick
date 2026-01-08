@@ -1,5 +1,5 @@
-:HL["/PokeClick/_next/static/chunks/727b750e4d247052.css","style"]
+:HL["/PokeClick/_next/static/chunks/420bd3f7d48962dd.css","style"]
 :HL["/PokeClick/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/PokeClick/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/PokeClick/_next/static/chunks/45042b2edb02f2ea.css","style"]
-0:{"buildId":"eH8ogOrJXgDiO1GoxiVor","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"5yWCzSacopdgh9xeK10jY","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
