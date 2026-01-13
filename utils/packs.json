@@ -25,5 +25,104 @@
     "nivel": "Bronce",
     "bgColor": "linear-gradient(to bottom, #b45309, #78350f)",
     "textColor": "#ffffff"
+  },
+  {
+    "id": 4,
+    "nombre": "Kanto",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 0,
+    "max": 151,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
+  },
+  {
+    "id": 5,
+    "nombre": "Johto",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 152,
+    "max": 251,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
+  },
+  {
+    "id": 6,
+    "nombre": "Hoenn",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 252,
+    "max": 386,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
+  },
+  {
+    "id": 7,
+    "nombre": "Sinnoh",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 387,
+    "max": 493,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
+  },
+  {
+    "id": 8,
+    "nombre": "Unova",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 494,
+    "max": 649,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
+  },
+  {
+    "id": 9,
+    "nombre": "Kalos",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 650,
+    "max": 721,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
+  },
+  {
+    "id": 10,
+    "nombre": "Alola",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 722,
+    "max": 809,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
+  },
+  {
+    "id": 11,
+    "nombre": "Galar",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 810,
+    "max": 898,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
+  },
+  {
+    "id": 12,
+    "nombre": "Paldea",
+    "precio": 100,
+    "cantidad": 5,
+    "nivel": "Especial",
+    "min": 899,
+    "max": 1010,
+    "bgColor": "linear-gradient(to right, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF, #D7BAFF, #FFBAED)",
+    "textColor": "#1f2937"
   }
 ]

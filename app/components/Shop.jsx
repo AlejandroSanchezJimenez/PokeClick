@@ -13,6 +13,8 @@ export default function Shop({ onClose }) {
   const [userId, setUserId] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [cartasPorSobre, setCartasPorSobre] = useState(1) // cantidad de cartas que abre el modal
+  const [minId, setMinId] = useState(0)
+  const [maxId, setMaxId] = useState(1025)
 
   // Solo para generar userId en cliente
   useEffect(() => {
@@ -31,6 +33,8 @@ export default function Shop({ onClose }) {
     if (coins >= sobre.precio) {
       spendCoins(sobre.precio)
       setCartasPorSobre(sobre.cantidad)
+      setMinId(sobre.min)
+      setMaxId(sobre.max)
       setModalOpen(true)
     } else {
       toast.error('No tienes suficientes monedas para comprar este sobre.')
@@ -72,17 +76,15 @@ export default function Shop({ onClose }) {
           <Wallet userId={userId} />
 
           {/* Scroll horizontal para sobres */}
-          <div className='flex gap-6 overflow-x-auto py-4 px-2 justify-center'>
+          <div className='flex gap-6 overflow-x-auto py-4 px-2 justify-start'>
             {packs.map((sobre) => (
               <button
                 key={sobre.id}
                 onClick={() => handleOpenPack(sobre)}
                 className={`flex-shrink-0 w-64 h-64 p-6 rounded-3xl shadow-xl flex flex-col items-center justify-center hover:scale-105 transition-transform hover:cursor-pointer ${
-                  // Aplicamos clase personalizada si existe, sino fondo por defecto
                   sobre.bgClass || 'bg-yellow-400'
                 }`}
                 style={{
-                  // También puedes usar colores directos o gradientes desde el JSON
                   background: sobre.bgColor || undefined,
                   color: sobre.textColor || 'black',
                 }}
@@ -102,6 +104,8 @@ export default function Shop({ onClose }) {
       {modalOpen && (
         <PokeballModal
           cantidadPokemon={cartasPorSobre}
+          minId={minId}
+          maxId={maxId}
           closePack={handleCloseModal}
         />
       )}

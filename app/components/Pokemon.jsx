@@ -25,7 +25,12 @@ const typeColors = {
 
 const STORAGE_KEY = 'pokedex'
 
-export default function PokeballModal({ cantidadPokemon = 1, closePack }) {
+export default function PokeballModal({
+  cantidadPokemon = 1,
+  closePack,
+  minId = 0,
+  maxId = 1025,
+}) {
   const [pokemon, setPokemon] = useState([])
   const [loading, setLoading] = useState(true)
   const hasRun = useRef(false)
@@ -70,7 +75,7 @@ export default function PokeballModal({ cantidadPokemon = 1, closePack }) {
 
   const obtenerPokemonAleatorio = async () => {
     try {
-      const id = Math.floor(Math.random() * 1025) + 1
+      const id = Math.floor(Math.random() * (maxId - minId + 1)) + minId
       const esShiny = Math.random() < 0.01
 
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
@@ -175,88 +180,93 @@ export default function PokeballModal({ cantidadPokemon = 1, closePack }) {
               </p>
             </div>
           ) : (
-            pokemon.map((p, idx) => (
-              <div
-                key={`${p.id}-${idx}`}
-                className='bg-white dark:bg-gray-800 rounded-3xl p-8 w-100vh flex flex-col items-center shadow-xl'
-                style={{
-                  animation: 'fadeInUp 0.8s ease-out',
-                  animationDelay: `${idx * 0.3}s`,
-                }}
-              >
-                <div className='relative w-48 h-48 mb-6'>
-                  {/* {p.shiny && (
+            pokemon.map((p, idx) => {
+              const storedPokedex = JSON.parse(
+                localStorage.getItem(STORAGE_KEY) || '{}'
+              )
+              const cantidad = storedPokedex[p.nombre]?.cantidad || 1
+
+              return (
+                <div
+                  key={`${p.id}-${idx}`}
+                  className='bg-white dark:bg-gray-800 rounded-3xl p-8 w-100vh flex flex-col items-center shadow-xl'
+                  style={{
+                    animation: 'fadeInUp 0.8s ease-out',
+                    animationDelay: `${idx * 0.3}s`,
+                  }}
+                >
+                  <div className='relative w-48 h-48 mb-6'>
                     <img
-                      src='/images/stars.gif'
-                      alt='Shiny'
-                      className='absolute inset-0 w-full h-full object-cover pointer-events-none animate-pulse opacity-80'
+                      src={p.imagen}
+                      alt={p.nombre}
+                      className='relative z-10 w-full h-full object-contain drop-shadow-2xl'
                     />
-                  )} */}
-                  <img
-                    src={p.imagen}
-                    alt={p.nombre}
-                    className='relative z-10 w-full h-full object-contain drop-shadow-2xl'
-                  />
-                </div>
-
-                <h2 className='text-2xl font-bold capitalize text-gray-900 dark:text-white mb-2'>
-                  {p.nombre} #{p.id}
-                  {p.shiny && (
-                    <span className='ml-3 text-yellow-400 text-xl'>
-                      ✨ Shiny ✨
-                    </span>
-                  )}
-                </h2>
-
-                <div className='flex gap-3 mb-6'>
-                  {p.tipos.map((tipo) => (
-                    <span
-                      key={tipo}
-                      className={`px-5 py-2 rounded-full text-white font-semibold text-sm ${
-                        typeColors[tipo] || 'bg-gray-400'
-                      }`}
-                    >
-                      {tipo}
-                    </span>
-                  ))}
-                </div>
-
-                <div className='w-full max-w-xs'>
-                  <div className='grid grid-cols-6 gap-3 text-xs font-bold text-gray-600 dark:text-gray-400 mb-3'>
-                    {['HP', 'ATK', 'SPA', 'DEF', 'SPD', 'SPE'].map((s) => (
-                      <span key={s} className='text-center'>
-                        {s}
-                      </span>
-                    ))}
                   </div>
-                  <div className='grid grid-cols-6 gap-3 mb-5'>
-                    {p.ivs.map((iv, i) => (
+
+                  <h2 className='text-2xl font-bold capitalize text-gray-900 dark:text-white mb-2'>
+                    {p.nombre} #{p.id}
+                    {p.shiny && (
+                      <span className='ml-3 text-yellow-400 text-xl'>
+                        ✨ Shiny ✨
+                      </span>
+                    )}
+                  </h2>
+
+                  <p className='text-center text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3'>
+                    Cantidad: {cantidad}
+                  </p>
+
+                  <div className='flex gap-3 mb-6'>
+                    {p.tipos.map((tipo) => (
                       <span
-                        key={i}
-                        className={`text-center text-2xl font-bold ${
-                          iv === 31
-                            ? 'text-green-500'
-                            : 'text-gray-800 dark:text-white'
+                        key={tipo}
+                        className={`px-5 py-2 rounded-full text-white font-semibold text-sm ${
+                          typeColors[tipo] || 'bg-gray-400'
                         }`}
                       >
-                        {iv}
+                        {tipo}
                       </span>
                     ))}
                   </div>
-                  <p
-                    className={`text-center text-2xl font-bold ${
-                      p.ivTotalPercent === 100
-                        ? 'text-yellow-500'
-                        : p.ivTotalPercent > 90
-                        ? 'text-purple-500'
-                        : 'text-gray-700 dark:text-gray-300'
-                    }`}
-                  >
-                    IV: {p.ivTotalPercent}%
-                  </p>
+
+                  {/* IVs y stats */}
+                  <div className='w-full max-w-xs'>
+                    <div className='grid grid-cols-6 gap-3 text-xs font-bold text-gray-600 dark:text-gray-400 mb-3'>
+                      {['HP', 'ATK', 'SPA', 'DEF', 'SPD', 'SPE'].map((s) => (
+                        <span key={s} className='text-center'>
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                    <div className='grid grid-cols-6 gap-3 mb-5'>
+                      {p.ivs.map((iv, i) => (
+                        <span
+                          key={i}
+                          className={`text-center text-2xl font-bold ${
+                            iv === 31
+                              ? 'text-green-500'
+                              : 'text-gray-800 dark:text-white'
+                          }`}
+                        >
+                          {iv}
+                        </span>
+                      ))}
+                    </div>
+                    <p
+                      className={`text-center text-2xl font-bold ${
+                        p.ivTotalPercent === 100
+                          ? 'text-yellow-500'
+                          : p.ivTotalPercent > 90
+                          ? 'text-purple-500'
+                          : 'text-gray-700 dark:text-gray-300'
+                      }`}
+                    >
+                      IV: {p.ivTotalPercent}%
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))
+              )
+            })
           )}
         </div>
       </div>
