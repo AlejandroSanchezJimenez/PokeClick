@@ -52,7 +52,45 @@ export default function PokeballModal({
     return { ivs, ivTotalPercent }
   }
 
+  const repararPokedexShiny = async () => {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    if (!stored) return
+
+    const pokedex = JSON.parse(stored)
+    let reparados = 0
+
+    for (const nombre in pokedex) {
+      const pkm = pokedex[nombre]
+
+      if (!pkm.shiny || !pkm.id) continue
+
+      try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pkm.id}`, {
+          cache: 'no-store',
+        })
+        if (!res.ok) continue
+
+        const data = await res.json()
+
+        const imagenShiny =
+          data.sprites.other?.['official-artwork']?.front_shiny ??
+          data.sprites.front_shiny
+
+        if (imagenShiny && pkm.imagen !== imagenShiny) {
+          pkm.imagen = imagenShiny
+          reparados++
+        }
+      } catch (err) {
+        console.error(`Error reparando ${nombre}`, err)
+      }
+    }
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(pokedex))
+    console.log(`✨ Revisión completada: ${reparados} shinies corregidos`)
+  }
+
   const registrarPokemon = (pkm) => {
+    repararPokedexShiny()
     const stored = localStorage.getItem(STORAGE_KEY)
     const pokedex = stored ? JSON.parse(stored) : {}
 
@@ -62,7 +100,7 @@ export default function PokeballModal({
       pokedex[nombre] = { ...pkm, cantidad: 1 }
     } else {
       pokedex[nombre].cantidad += 1
-      pokedex[nombre].imagen = pkm.imagen
+      if (!pokemon[nombre].shiny) pokedex[nombre].imagen = pkm.imagen
       if (ivTotalPercent > (pokedex[nombre].ivTotalPercent || 0)) {
         pokedex[nombre].ivs = ivs
         pokedex[nombre].ivTotalPercent = ivTotalPercent
