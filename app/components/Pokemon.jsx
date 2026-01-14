@@ -90,7 +90,7 @@ export default function PokeballModal({
   }
 
   const registrarPokemon = (pkm) => {
-    repararPokedexShiny()
+    // repararPokedexShiny()
     const stored = localStorage.getItem(STORAGE_KEY)
     const pokedex = stored ? JSON.parse(stored) : {}
 
