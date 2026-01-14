@@ -62,6 +62,7 @@ export default function PokeballModal({
       pokedex[nombre] = { ...pkm, cantidad: 1 }
     } else {
       pokedex[nombre].cantidad += 1
+      pokedex[nombre].imagen = pkm.imagen
       if (ivTotalPercent > (pokedex[nombre].ivTotalPercent || 0)) {
         pokedex[nombre].ivs = ivs
         pokedex[nombre].ivTotalPercent = ivTotalPercent
