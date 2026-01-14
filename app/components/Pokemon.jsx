@@ -90,23 +90,31 @@ export default function PokeballModal({
   }
 
   const registrarPokemon = (pkm) => {
-    // repararPokedexShiny()
     const stored = localStorage.getItem(STORAGE_KEY)
     const pokedex = stored ? JSON.parse(stored) : {}
 
-    const { nombre, ivs, ivTotalPercent } = pkm
+    const { nombre, ivs, ivTotalPercent, shiny } = pkm
 
     if (!pokedex[nombre]) {
       pokedex[nombre] = { ...pkm, cantidad: 1 }
     } else {
       pokedex[nombre].cantidad += 1
-      if (!pokemon[nombre].shiny) pokedex[nombre].imagen = pkm.imagen
+
+      if (shiny) {
+        pokedex[nombre].shiny = true
+        pokedex[nombre].imagen = pkm.imagen
+      }
+
+      // IVs
       if (ivTotalPercent > (pokedex[nombre].ivTotalPercent || 0)) {
         pokedex[nombre].ivs = ivs
         pokedex[nombre].ivTotalPercent = ivTotalPercent
       }
-      if (pkm.shiny) pokedex[nombre].shiny = true
-      if (pkm.habilidad.hidden) pokedex[nombre].ha = true
+
+      // Habilidad oculta
+      if (pkm.habilidad?.hidden) {
+        pokedex[nombre].ha = true
+      }
     }
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(pokedex))
